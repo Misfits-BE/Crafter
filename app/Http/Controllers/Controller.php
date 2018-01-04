@@ -7,6 +7,14 @@ use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 
+/**
+ * Controller 
+ * 
+ * De basis controller voor de applicatie. 
+ * 
+ * @author    Tim Joosten <tim@activisme.be>
+ * @copyright 2018 Tim Joosten
+ */
 class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
