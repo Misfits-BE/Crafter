@@ -6,7 +6,7 @@
 			<div class="col-md-12">
 				<div class="panel panel-default">
 					<div class="panel-body">
-						<p class="lead">
+						<p>
 							Deze website is eigendom van <a href="{{ config('platform.author.website')  }}">{{ config('platform.author.name') }}</a>.
 							Door de toegang tot en het gebruik van deze website verklaart u zich uitdrukkelijk akkoord met de volgende algemene voorwaarden.
 						</p>
