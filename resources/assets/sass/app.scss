@@ -20,9 +20,7 @@ $web-font-path: "https://fonts.googleapis.com/css?family=Ubuntu:400,700" !defaul
 // Navbar =====================================================================
 
 .navbar {
-
   &-default {
-
     .badge {
       background-color: #fff;
       color: $navbar-default-bg;
@@ -30,7 +28,6 @@ $web-font-path: "https://fonts.googleapis.com/css?family=Ubuntu:400,700" !defaul
   }
 
   &-inverse {
-
     .badge {
       background-color: #fff;
       color: $navbar-inverse-bg;
@@ -39,9 +36,7 @@ $web-font-path: "https://fonts.googleapis.com/css?family=Ubuntu:400,700" !defaul
 }
 
 @media (max-width: $grid-float-breakpoint-max) {
-
   .navbar {
-
     .dropdown-menu {
       a {
         color: #fff;
