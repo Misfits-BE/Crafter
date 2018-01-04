@@ -10,6 +10,8 @@ use Illuminate\View\View;
  *
  * Controller voor het informeren van de gebruiker omtrent de algemene voorwaarden.
  *
+ * @author    Tim Joosten <tim@ctivisme.be>
+ * @copyright Tim Joosten
  */
 class DisclaimerController extends Controller
 {
