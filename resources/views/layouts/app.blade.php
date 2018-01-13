@@ -58,8 +58,14 @@
 
                                 <ul class="dropdown-menu">
                                     <li>
+                                        <a href="">
+                                            <i class="fa fa-wrench fa-fw"></i> Account settings
+                                        </a>
+                                    </li>
+                                    <li class="divider"></li>
+                                    <li>
                                         <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                                            Logout
+                                            <i class="fa fa-fw fa-power-off text-danger"></i> Logout
                                         </a>
 
                                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
