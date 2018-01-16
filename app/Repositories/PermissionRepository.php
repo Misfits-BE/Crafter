@@ -13,7 +13,6 @@ use ActivismeBE\DatabaseLayering\Repositories\Eloquent\Repository;
  */
 class PermissionRepository extends Repository
 {
-
     /**
      * Set the eloquent model class for the repository.
      *
@@ -22,5 +21,19 @@ class PermissionRepository extends Repository
     public function model()
     {
         return Permission::class;
+    }
+
+    /**
+     * Creer een nieuw permissie in het systeem. 
+     * 
+     * Dit is een functie voor de UsersTableSeeder die rust op de 
+     * Eloqueunt ORM ->firstOrCreate() methode. 
+     * 
+     * @param  array $permissions De naam voor de permissie. 
+     * @return \Spatie\Permission\Models\Permission
+     */
+    public function seedFirstOrCreate(array $permissions): Permission 
+    {
+        return $this->model->firstOrCreate($permissions);
     }
 }
