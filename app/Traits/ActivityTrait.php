@@ -10,7 +10,7 @@ namespace App\Traits;
  * @author      Tim Joosten <tim@activisme.be>
  * @copyright   2018 Tim Joosten
  */
-class ActivityTrait 
+trait ActivityTrait 
 {
     /**
      * Schrijf een activiteit log naar de databank. 
