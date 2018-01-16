@@ -3,6 +3,7 @@
 namespace App\Repositories;
 
 use App\User;
+use Spatie\Permission\Models\Role;
 use ActivismeBE\DatabaseLayering\Repositories\Contracts\RepositoryInterface;
 use ActivismeBE\DatabaseLayering\Repositories\Eloquent\Repository;
 
