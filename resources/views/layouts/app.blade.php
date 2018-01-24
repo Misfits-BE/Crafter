@@ -40,11 +40,11 @@
                         @if (! auth()->user()) {{-- Guest user --}}
                             
                         @else {{-- Authencated users --}}
-                            @hasrole('user')
+                            @if ($user->hasRole('user'))
                                 <li @if (request()->is('disclaimer*')) class="active" @endif>
                                     <a href="{{ route('disclaimer') }}">Disclaimer</a>
                                 </li>
-                            @endhasrole
+                            @endif
                         @endif
                     </ul>
 

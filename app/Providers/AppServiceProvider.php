@@ -11,9 +11,11 @@ class AppServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    public function boot()
+    public function boot(): void
     {
-        //
+        view()->composer('*', function ($view) { // Set the authencated user to a variable.
+            $view->with('user', auth()->user());
+        });
     }
 
     /**
