@@ -11,7 +11,7 @@
             </div>
 
             <div class="panel-body">
-                <form method="POST" action="" class="form-horizontal">
+                <form method="POST" action="{{ route('admin.users.save') }}" class="form-horizontal">
                     {{ csrf_field() }} {{-- Form field protection --}}
                     
                     <div class="form-group">

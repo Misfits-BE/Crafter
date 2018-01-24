@@ -1,9 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
-    @include('flash::message') {{-- Flash session view instance --}}
-
     <div class="container">
+        @include('flash::message') {{-- Flash session view instance --}}
+        
         <div class="row">
             <div class="col-sm-12">
                 <div class="panel panel-default">
