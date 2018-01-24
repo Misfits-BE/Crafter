@@ -37,10 +37,14 @@
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">
                     <!-- Left Side Of Navbar -->
                     <ul class="nav navbar-nav">
-                        @guest
-                            <li @if (request()->is('disclaimer*')) class="active" @endif>
-                                <a href="{{ route('disclaimer') }}">Disclaimer</a>
-                            </li>
+                        @if (! auth()->user()) {{-- Guest user --}}
+                            
+                        @else {{-- Authencated users --}}
+                            @hasrole('user')
+                                <li @if (request()->is('disclaimer*')) class="active" @endif>
+                                    <a href="{{ route('disclaimer') }}">Disclaimer</a>
+                                </li>
+                            @endhasrole
                         @endif
                     </ul>
 
