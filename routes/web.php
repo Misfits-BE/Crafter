@@ -22,3 +22,4 @@ Route::get('/disclaimer', 'Frontend\DisclaimerController@index')->name('disclaim
 
 // User routes 
 Route::get('/admin/gebruikers', 'Backend\UsersController@index')->name('admin.users.index');
+Route::get('/admin/gebruikers/nieuw', 'Backend\UsersController@create')->name('admin.users.create');
