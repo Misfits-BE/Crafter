@@ -19,3 +19,6 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/disclaimer', 'Frontend\DisclaimerController@index')->name('disclaimer');
+
+// User routes 
+Route::get('/admin/gebruikers', 'Backend\UsersController@index')->name('admin.users.index');

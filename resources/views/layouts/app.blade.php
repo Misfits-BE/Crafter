@@ -40,12 +40,16 @@
                         @if (! auth()->user()) {{-- Guest user --}}
                             
                         @else {{-- Authencated users --}}
-                            @if ($user->hasRole('user'))
-                                <li @if (request()->is('disclaimer*')) class="active" @endif>
-                                    <a href="{{ route('disclaimer') }}">Disclaimer</a>
+                            @if ($user->hasRole('admin'))
+                                <li @if (request()->is('admin/gebruikers*')) class="active" @endif>
+                                    <a href="{{ route('admin.users.index') }}"><i class="fa fa-users"></i> Gebruikers</a>
                                 </li>
                             @endif
                         @endif
+                    
+                        <li @if (request()->is('disclaimer*')) class="active" @endif>
+                            <a href="{{ route('disclaimer') }}"><i class="fas fa-file-alt"></i> Disclaimer</a>
+                        </li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->
@@ -57,13 +61,13 @@
                         @else
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true">
-                                    {{ auth()->user()->name }} <span class="caret"></span>
+                                    <i class="fa fa-user"></i> {{ $user->name }} <span class="caret"></span>
                                 </a>
 
                                 <ul class="dropdown-menu">
                                     <li>
                                         <a href="">
-                                            <i class="fa fa-wrench fa-fw"></i> Account settings
+                                            <i class="fa fa-cogs fa-fw"></i> Account settings
                                         </a>
                                     </li>
                                     <li class="divider"></li>
