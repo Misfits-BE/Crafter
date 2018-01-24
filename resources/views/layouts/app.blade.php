@@ -44,6 +44,10 @@
                                 <li @if (request()->is('admin/gebruikers*')) class="active" @endif>
                                     <a href="{{ route('admin.users.index') }}"><i class="fa fa-users"></i> Gebruikers</a>
                                 </li>
+
+                                <li @if (request()->is('admin/logs*')) class="active" @endif>
+                                    <a href=""><i class="fas fa-file-alt"></i> Logs</a>
+                                </li>
                             @endif
                         @endif
                     
