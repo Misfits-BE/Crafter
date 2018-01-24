@@ -33,6 +33,9 @@ class UsersController extends Controller
     /**
      * Index pagina voor de beheers console omtrent gebruikers. 
      * 
+     * @todo Register tooltips to the user functions
+     * @todo Implement user functions to the view.
+     * 
      * @return \Illuminate\View\View
      */
     public function index (): View 
