@@ -37,7 +37,7 @@
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">
                     <!-- Left Side Of Navbar -->
                     <ul class="nav navbar-nav">
-                        @if (auth()->check()) {{-- Guest user --}}
+                        @if (auth()->guest()) {{-- Guest user --}}
                             
                         @else {{-- Authencated users --}}
                             @if ($user->hasRole('admin'))
