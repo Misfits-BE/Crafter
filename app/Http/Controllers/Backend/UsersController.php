@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Backend;
 
+use App\User;
 use App\Repositories\UserRepository;
 use App\Repositories\RoleRepository;
 use App\Http\Controllers\Controller;
@@ -83,6 +84,25 @@ class UsersController extends Controller
 
         if ($user = $this->users->create($input->except(['_token', 'role']))->assignRole($input->role)) {
             flash("Er is een login voor {$user->name} toegevoegd in het systeem.")->success()->important();
+        }
+
+        return redirect()->route('admin.users.index');
+    }
+
+    /**
+     * Verwijder een gebruiker uit het systeem. 
+     * 
+     * @todo Implementatie phpunit test 
+     * 
+     * @param  int $user    De unieke identificatie van de gebruiker in de databank
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function destroy(int $user): RedirectResponse 
+    {
+        $user = $this->users->findOrFail($user);
+
+        if ($user->delete()) {
+            flash("De login voor {$user->name} is verwijderd uit het systeem.")->success()->important();
         }
 
         return redirect()->route('admin.users.index');

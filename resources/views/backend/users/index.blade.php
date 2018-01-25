@@ -51,7 +51,7 @@
                                                             <i class="fas fa-fw fa-lock"></i>
                                                         </a>
                                                         
-                                                        <a href="" class="text-danger">
+                                                        <a href="{{ route('admin.users.destroy', $user) }}" class="text-danger">
                                                             <i class="fas fa-fw fa-times"></i>
                                                         </a>
                                                     </span>
