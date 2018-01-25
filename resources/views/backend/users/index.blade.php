@@ -47,10 +47,16 @@
 
                                                 <td> {{-- /Opties --}}
                                                     <span class="pull-right">
-                                                        <a href="" class="text-warning">
-                                                            <i class="fas fa-fw fa-lock"></i>
-                                                        </a>
-                                                        
+                                                        @cannot('same-user', $user) {{-- Rendered user is not the same then the authencated user --}}
+                                                            @if ($user->isBanned()) {{-- The user is blocked in the system. --}} 
+                                                            @else {{-- The user is not banned --}}
+                                                                <a href="{{ route('admin.users.lock', $user) }}" class="text-warning">
+                                                                    <i class="fas fa-fw fa-lock"></i>
+                                                                </a>
+                                                            @endif
+                                                        @endcannot
+
+
                                                         <a href="{{ route('admin.users.destroy', $user) }}" class="text-danger">
                                                             <i class="fas fa-fw fa-times"></i>
                                                         </a>
