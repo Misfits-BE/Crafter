@@ -72,6 +72,7 @@ class UsersController extends Controller
     /**
      * Slaag een nieuwe gebruiker op in het systeem 
      * 
+     * @todo Implementatie activiteiten logger.
      * @todo Implementatie phpunit test
      * 
      * @param  UserValidator De gegeven gebruikers invoer. (Gevalideerd)
@@ -93,6 +94,7 @@ class UsersController extends Controller
      * Verwijder een gebruiker uit het systeem. 
      * 
      * @todo Implementatie phpunit test 
+     * @todo Implementatie activiteiten logger
      * 
      * @param  int $user    De unieke identificatie van de gebruiker in de databank
      * @return \Illuminate\Http\RedirectResponse

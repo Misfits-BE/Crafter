@@ -38,7 +38,6 @@ class BanController extends Controller
      * 
      * @todo Implementatie PHPUnit test case. 
      * @todo Mail notificatie.
-     * @todo Implementatie activiteiten logger
      * 
      * @param  int $user De unieke identificatie van de gebruiker in de databank.
      * @return \Illuminate\Http\RedirectResponse
@@ -49,6 +48,8 @@ class BanController extends Controller
 
         if (Gate::denies('same-user', $user)) {                 // 1) De gebruiker is niet dezelfde gebruiker dan op gegeven
             if ($user->ban(['expired_at' => '+2 weeks'])) {     // 2) De gebruiker is voor 2 weken geband in het systeem.
+                $this->registerActivity($user, 'Heeft een gebruiker geblokeerd');
+
                 $flash = flash($user->name . ' is geblokkeerd in het systeem.')->info();
             }
              
