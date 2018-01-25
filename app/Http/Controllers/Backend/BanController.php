@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Backend;
 use Gate;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use App\Notifications\UserBlockedNotification;
 use App\Repositories\UserRepository;
 use App\Http\Controllers\Controller;
 
@@ -37,7 +38,6 @@ class BanController extends Controller
      * Blokkeer een gebruiker in de applicatie. 
      * 
      * @todo Implementatie PHPUnit test case. 
-     * @todo Mail notificatie.
      * 
      * @param  int $user De unieke identificatie van de gebruiker in de databank.
      * @return \Illuminate\Http\RedirectResponse
@@ -48,12 +48,13 @@ class BanController extends Controller
 
         if (Gate::denies('same-user', $user)) {                 // 1) De gebruiker is niet dezelfde gebruiker dan op gegeven
             if ($user->ban(['expired_at' => '+2 weeks'])) {     // 2) De gebruiker is voor 2 weken geband in het systeem.
-                $this->registerActivity($user, 'Heeft een gebruiker geblokeerd');
+                $user->notify((new UserBlockedNotification(auth()->user()))->delay(now()->addMinute()));
 
-                $flash = flash($user->name . ' is geblokkeerd in het systeem.')->info();
+                $this->registerActivity($user, trans('users.flash-success-account-locked'));
+                $flash = flash(trans('users.activities-lock', ['name' => ucfirst($user->name)]))->info();
             }
              
-        } else { $flash = flash('Helaas! Je kunt jezelf niet blokkeren in het systeem.')->error(); }
+        } else { $flash = flash(trans('users.flash-error-block-same-user'))->error(); }
 
         $flash->important(); // Gebruiker moet de alert manueel wegklikken uit UX overwegingen.
         return redirect()->route('admin.users.index');

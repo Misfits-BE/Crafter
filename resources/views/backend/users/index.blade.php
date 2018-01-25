@@ -40,7 +40,15 @@
                                         @foreach ($users as $user) {{-- Loop through the users --}}
                                             <tr>
                                                 <td><code>#{{ $user->id }}</code></code>
-                                                <td></td> {{-- Status indicator --}}
+                                                
+                                                <td>
+                                                    @if ($user->isBanned())
+                                                        <span class="label label-warning"><i class="fas fa-fw fa-lock"></i> Geblokkeerd</span>
+                                                    @else {{-- User is not banned --}}
+                                                        {{-- TODO: Implement online/offline indicator --}}
+                                                    @endif
+                                                </td>
+
                                                 <td><a href="mailto:{{ $user->email }}">{{ $user->name }}</a></td>
                                                 <td>{{ $user->email }}</td>
                                                 <td>{{ $user->created_at->format('d/m/Y') }}</td>
@@ -49,6 +57,9 @@
                                                     <span class="pull-right">
                                                         @cannot('same-user', $user) {{-- Rendered user is not the same then the authencated user --}}
                                                             @if ($user->isBanned()) {{-- The user is blocked in the system. --}} 
+                                                                <a href="" class="text-warning">
+                                                                    <i class="fas fa-fw fa-unlock"></i>
+                                                                </a>
                                                             @else {{-- The user is not banned --}}
                                                                 <a href="{{ route('admin.users.lock', $user) }}" class="text-warning">
                                                                     <i class="fas fa-fw fa-lock"></i>
