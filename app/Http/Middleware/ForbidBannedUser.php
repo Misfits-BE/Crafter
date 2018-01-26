@@ -46,7 +46,8 @@ class ForbidBannedUser
     {
         $user = $this->auth()->user();
 
-        if ($his->user && $user->isBanned()) {
+        if ($user && $user->isBanned()) {
+            auth()->logout();
             return view('errors.blocked');
         }
 

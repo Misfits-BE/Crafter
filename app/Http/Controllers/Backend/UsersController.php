@@ -31,7 +31,6 @@ class UsersController extends Controller
      * UsersController constructor; 
      *
      * @todo Implement admin permission check.
-     * @todo Implement middlewarr forbid-banned-user
      *  
      * @param  UserRepository $users    Abstractie laag tussen model en controller.
      * @param  RoleRepository $roles    Abstractie laag tussen model en controller.
@@ -39,6 +38,8 @@ class UsersController extends Controller
      */
     public function __construct(UserRepository $users, RoleRepository $roles) 
     {
+        $this->middleware(['forbid-banned-user']);
+
         $this->users = $users;
         $this->roles = $roles;
     }

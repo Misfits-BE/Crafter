@@ -25,12 +25,16 @@ class BanController extends Controller
 
     /**
      * BanController constructor 
-     * 
+     *
+     * @todo Implementatie role middleware (admin role needed)
+     *
      * @param  UserRepository $user    De abstractie laag tussen controller en databank.  
      * @return void
      */
     public function __construct(UserRepository $user) 
     {
+        $this->middleware(['forbid-banned-user']);
+
         $this->user = $user;
     }
 
