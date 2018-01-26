@@ -57,7 +57,7 @@
                                                     <span class="pull-right">
                                                         @cannot('same-user', $user) {{-- Rendered user is not the same then the authencated user --}}
                                                             @if ($user->isBanned()) {{-- The user is blocked in the system. --}} 
-                                                                <a href="" class="text-warning">
+                                                                <a href="{{ route('admin.users.unlock', $user) }}" class="text-warning">
                                                                     <i class="fas fa-fw fa-unlock"></i>
                                                                 </a>
                                                             @else {{-- The user is not banned --}}

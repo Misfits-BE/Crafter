@@ -23,4 +23,26 @@ return [
         'contact' => 'Contact',
     ],
 
+    'flash' => [
+        // Error
+        'error-unban-same-user' => 'Sorry! You cannot unban yourself.',
+        
+        // Success
+        'success-unban-user' => 'The user :name has been unbanned in the system.'
+    ],
+
+    'activities' => [
+        'unban'  => 'Unbanned :name in the application.' 
+    ],
+    
+    'email' => [
+        'titles' => [
+            'unban' => 'Your account is back active.'
+        ],
+
+        'messages' => [ // The email content bodies
+            'active-user' => "This email has been send to inform that your account on :application has been unbanned.",
+        ],
+    ],
+
 ];

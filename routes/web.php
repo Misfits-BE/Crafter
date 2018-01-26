@@ -28,3 +28,4 @@ Route::post('/admin/gebruikers/opslaan', 'Backend\UsersController@store')->name(
 
 // Ban routes 
 Route::get('/admin/gebruiker/blokkeer/{id}', 'Backend\BanController@lock')->name('admin.users.lock');
+Route::get('/admin/gebruiker/activeer/{id}', 'Backend\BanController@unlock')->name('admin.users.unlock');

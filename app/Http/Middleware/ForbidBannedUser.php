@@ -6,28 +6,28 @@ use Closure;
 use Illuminate\Contracts\Auth\Guard;
 
 /**
- * Vermijd dat geblokkeerde gebruikers toch dingen kunnen wijzigen in de applicatie. 
- * 
- * @author  Anton Komarev <a.komarev@cybersog.su>
- * @license 2018 MIT License
- * @package \App\Http\Middleware
+ * Class ForbidBannedUser.
+ *
+ * @author      Anton Komarev
+ * @copyright   2018 Anton Komarev
+ * @package     Cog\Laravel\Ban\Http\Middleware
  */
 class ForbidBannedUser
 {
     /**
-     * The Guard Implementation
-     * 
+     * The Guard implementation.
+     *
      * @var \Illuminate\Contracts\Auth\Guard
      */
-    protected $auth; 
-
-    /** 
-     * ForbidBannedUser constructor 
+    protected $auth;
+    
+    /**
+     * ForbidBannedUser constructor
      * 
      * @param  \Illuminate\Contracts\Auth\Guard $auth
      * @return void
      */
-    public function __constrcut(Guard $auth) 
+    public function __construct(Guard $auth)
     {
         $this->auth = $auth;
     }
@@ -35,19 +35,18 @@ class ForbidBannedUser
     /**
      * Handle an incoming request.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \Closure                  $next
-     * 
-     * @throws \Exception
+     * @param \Illuminate\Http\Request $request
+     * @param \Closure                 $next
      * 
      * @return mixed
+     * 
+     * @throws \Exception
      */
     public function handle($request, Closure $next)
     {
-        $user = $this->auth()->user();
-
+        $user = $this->auth->user();
+        
         if ($user && $user->isBanned()) {
-            auth()->logout();
             return view('errors.blocked');
         }
 
