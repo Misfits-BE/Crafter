@@ -1,5 +1,6 @@
 <?php
     return [
+
         /**
          * --------------------------------------------------------------------------
          * Author config
@@ -9,9 +10,24 @@
          * voor het platform.
          *
          */
+
         'author' => [
-            'name'    => 'Activisme_be',
-            'website' => 'https://www.activisme.be',
-            'email'   => 'acties@activisme.be'
+            'name'    => 'platform name',
+            'website' => 'https://domain.tld',
+            'email'   => 'test@domain.tld'
+        ],
+
+
+        /**
+         * --------------------------------------------------------------------------
+         * Ban config
+         * --------------------------------------------------------------------------
+         *
+         * De configuratie omtrent blokkering van gebruikers in de applicatie.
+         *
+         */
+
+        'ban' => [
+            'email' => 'test@domain.tld'
         ]
     ];
