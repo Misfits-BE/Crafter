@@ -38,7 +38,7 @@ class UsersController extends Controller
      */
     public function __construct(UserRepository $users, RoleRepository $roles) 
     {
-        $this->middleware(['forbid-banned-user']);
+        $this->middleware(['role:admin', 'forbid-banned-user']);
 
         $this->users = $users;
         $this->roles = $roles;

@@ -33,8 +33,7 @@ class BanController extends Controller
      */
     public function __construct(UserRepository $user) 
     {
-        $this->middleware(['forbid-banned-user']);
-
+        $this->middleware(['role:admin', 'forbid-banned-user']);
         $this->user = $user;
     }
 
@@ -70,7 +69,8 @@ class BanController extends Controller
      * @todo Implementatie PHPUnit test case
      * @todo mail notificatie
      * @todo Implementatie activiteiten user
-     * 
+     * @todo Implementatie gate authorizatie.
+     *
      * @param  int $user De unieke identificatie van de gebruiker in de databank.
      * @return \Illuminate\Http\RedirectResponse
      */
