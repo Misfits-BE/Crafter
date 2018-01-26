@@ -22,6 +22,11 @@ return [
     // Log messages
     'activities-lock' => ':name is blocked in the application.',
 
+    // Indicators 
+    'indicator-online'  => 'Online',
+    'indicator-blocked' => 'Blocked',
+    'indicator-offline' => 'Offline',
+
     // Email translations 
     'email' => [
         'subjects' => [ // Email title Translations

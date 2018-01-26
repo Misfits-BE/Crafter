@@ -43,9 +43,13 @@
                                                 
                                                 <td>
                                                     @if ($user->isBanned())
-                                                        <span class="label label-warning"><i class="fas fa-fw fa-lock"></i> Geblokkeerd</span>
+                                                        <span class="label label-warning"><i class="fas fa-fw fa-lock"></i> @lang('users.indicator-blocked')</span>
                                                     @else {{-- User is not banned --}}
-                                                        {{-- TODO: Implement online/offline indicator --}}
+                                                        @if ($user->isOnline())
+                                                            <span class="label label-success">@lang('users.indicator-online')</span> 
+                                                        @else {{-- User is offline --}}
+                                                            <span class="label label-danger">@lang('users.indicator-offline')</span>
+                                                        @endif
                                                     @endif
                                                 </td>
 
