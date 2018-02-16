@@ -1,9 +1,11 @@
+// Cosmo 3.3.7
+// Bootswatch
+// -------------------------------------------------------------
 
-// Fonts
-@import url("https://fonts.googleapis.com/css?family=Raleway:300,400,600");
-
-// Variables
+// SCSS Configuration
+// ------------------------------------------------------------
 @import "variables";
 
-// Bootstrap
+// Framework base
+// -------------------------------------------------------------
 @import "~bootstrap-sass/assets/stylesheets/bootstrap";

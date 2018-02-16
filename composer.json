@@ -6,15 +6,25 @@
     "type": "project",
     "require": {
         "php": ">=7.0.0",
+        "activismebe/database-layering": "^0.29.0",
+        "activismebe/laravel-form-helpers": "^1.2",
+        "cybercog/laravel-ban": "^3.0",
         "fideloper/proxy": "~3.3",
+        "laracasts/flash": "^3.0",
         "laravel/framework": "5.5.*",
-        "laravel/tinker": "~1.0"
+        "laravel/tinker": "~1.0",
+        "spatie/laravel-activitylog": "^2.3",
+        "spatie/laravel-permission": "^2.7",
+        "spatie/laravel-tail": "^2.0"
     },
     "require-dev": {
+        "barryvdh/laravel-debugbar": "^3.1",
         "filp/whoops": "~2.0",
+        "friendsofphp/php-cs-fixer": "^2.9",
         "fzaninotto/faker": "~1.4",
         "mockery/mockery": "~1.0",
-        "phpunit/phpunit": "~6.0"
+        "phpunit/phpunit": "~6.0",
+        "sensiolabs/security-checker": "^4.1"
     },
     "autoload": {
         "classmap": [
@@ -37,6 +47,12 @@
         }
     },
     "scripts": {
+        "fix-cs": [
+            "vendor/bin/php-cs-fixer fix"
+        ],
+        "check-security": [
+            "vendor/bin/security-checker security:check"
+        ],
         "post-root-package-install": [
             "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
         ],

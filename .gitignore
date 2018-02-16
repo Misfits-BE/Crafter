@@ -4,6 +4,7 @@
 /storage/*.key
 /vendor
 /.idea
+/.php_cs.cache
 /.vagrant
 Homestead.json
 Homestead.yaml
